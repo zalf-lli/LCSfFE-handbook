@@ -1,0 +1,191 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <Wire.h>
+#include "Adafruit_SHT4x.h"
+#include <Adafruit_BMP280.h>
+#include "BluetoothSerial.h"
+
+// Disclaimer: This example code is part of a research prototype.
+// It is provided "as is", without any warranty of any kind.
+// Please review, adapt, and test carefully before using it in production.
+
+// -----------------------------------------------------------------------------
+// User configuration section
+// -----------------------------------------------------------------------------
+
+// === Wi-Fi credentials ===
+// TODO: Insert the SSID (network name) and password of the Wi-Fi network
+// that should be used by the EVE-NODE in the field.
+const char* ssid     = "YOUR_WIFI_SSID_HERE";
+const char* password = "YOUR_WIFI_PASSWORD_HERE";
+
+// === Server URL with token ===
+// TODO: Replace this with the full URL of your ingestion endpoint, including
+// the token you configured in esp32_data.php (e.g. ?token=YOUR_LONG_RANDOM_TOKEN).
+const char* serverName =
+  "http://your-server.example.org/esp32_data.php?token=YOUR_LONG_RANDOM_TOKEN";
+
+// === Device identifier ===
+// TODO: Give each physical node a unique device_id string. This must match the
+// device_id stored in the database (nodes/device_id).
+const char* deviceId = "EVE-NODE-XX";
+
+// === Bluetooth device name (optional, for debugging) ===
+const char* btName = "EVE-NODE-DEBUG";
+
+// -----------------------------------------------------------------------------
+// Sensors and hardware configuration
+// -----------------------------------------------------------------------------
+
+Adafruit_SHT4x sht4 = Adafruit_SHT4x();
+Adafruit_BMP280 bmp;
+
+BluetoothSerial SerialBT;
+
+// TPL5110 DONE pin: set HIGH when the measurement cycle is finished so that the
+// external timer can power down the node.
+const int DONE_PIN = 17;
+
+// PAR sensor configuration
+const int   parPin       = 34;       // GPIO34 ADC input
+const float R_load       = 4700.0;   // Load resistor in ohms
+const float responsivity = 0.0075 / 1e6; // A/lux (example value)
+
+// Timing: average over 5 seconds, with one sample every 0.5 seconds.
+const unsigned long sampleDuration = 5000;   // ms
+const unsigned long sampleInterval = 500;    // ms
+const int           numSamples     = sampleDuration / sampleInterval;
+
+// -----------------------------------------------------------------------------
+// Setup
+// -----------------------------------------------------------------------------
+
+void setup() {
+  Serial.begin(9600);          // USB Serial for debugging
+  SerialBT.begin(btName);      // Bluetooth Serial for field debugging
+
+  Wire.begin();
+
+  pinMode(DONE_PIN, OUTPUT);
+  digitalWrite(DONE_PIN, LOW);
+
+  // --- Connect to Wi-Fi ---
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
+  SerialBT.print("Connecting to Wi-Fi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    SerialBT.print(".");
+  }
+  Serial.println("\n✅ Wi-Fi connected");
+  SerialBT.println("\n✅ Wi-Fi connected");
+
+  // --- Initialize sensors ---
+  if (!sht4.begin()) {
+    Serial.println("❌ SHT4x not found");
+    SerialBT.println("❌ SHT4x not found");
+    while (true) {
+      delay(1);
+    }
+  }
+  sht4.setPrecision(SHT4X_HIGH_PRECISION);
+
+  if (!bmp.begin(0x76)) {
+    Serial.println("❌ BMP280 not found");
+    SerialBT.println("❌ BMP280 not found");
+    while (true) {
+      delay(1);
+    }
+  }
+
+  analogReadResolution(12); // ESP32 ADC: 0–4095 for 0–3.3 V (default 12 bit)
+}
+
+// -----------------------------------------------------------------------------
+// Main loop: measure, average, send once, then signal DONE
+// -----------------------------------------------------------------------------
+
+void loop() {
+  float tempSum    = 0.0f;
+  float humSum     = 0.0f;
+  float bmpTempSum = 0.0f;
+  float presSum    = 0.0f;
+  float parSum     = 0.0f;
+  int   validSamples = 0;
+
+  // --- Sampling loop with simple averaging ---
+  for (int i = 0; i < numSamples; i++) {
+    sensors_event_t hum, temp;
+    sht4.getEvent(&hum, &temp);
+
+    float bmpTemp  = bmp.readTemperature();     // °C
+    float pressure = bmp.readPressure() / 100.0; // hPa
+
+    int   rawPar   = analogRead(parPin);
+    float voltage  = rawPar * (3.3f / 4095.0f);
+    float currentA = voltage / R_load;
+    float lux      = currentA / responsivity;   // very approximate PAR proxy
+
+    if (!isnan(temp.temperature) && !isnan(hum.relative_humidity)) {
+      tempSum    += temp.temperature;
+      humSum     += hum.relative_humidity;
+      bmpTempSum += bmpTemp;
+      presSum    += pressure;
+      parSum     += lux;
+      validSamples++;
+    }
+
+    delay(sampleInterval);
+  }
+
+  if (validSamples == 0) {
+    Serial.println("⚠️ No valid sensor samples collected");
+    SerialBT.println("⚠️ No valid sensor samples collected");
+  } else {
+    float avgTemp    = tempSum    / validSamples;
+    float avgHum     = humSum     / validSamples;
+    float avgBmpTemp = bmpTempSum / validSamples;
+    float avgPres    = presSum    / validSamples;
+    float avgPar     = parSum     / validSamples;
+
+    // --- Build JSON payload ---
+    String payload = "{";
+    payload += "\"device_id\":\"" + String(deviceId) + "\",";
+    payload += "\"sht_temp\":"   + String(avgTemp,    2) + ",";
+    payload += "\"humidity\":"   + String(avgHum,     2) + ",";
+    payload += "\"bmp_temp\":"   + String(avgBmpTemp, 2) + ",";
+    payload += "\"pressure\":"   + String(avgPres,    2) + ",";
+    payload += "\"par\":"        + String(avgPar,     2);
+    payload += "}";
+
+    // --- Debug Output ---
+    Serial.println("📤 Sending JSON:");
+    Serial.println(payload);
+    SerialBT.println("📤 Sending JSON:");
+    SerialBT.println(payload);
+
+    // --- Send JSON to server ---
+    if (WiFi.status() == WL_CONNECTED) {
+      HTTPClient http;
+      http.begin(serverName);
+      http.addHeader("Content-Type", "application/json");
+
+      int responseCode = http.POST(payload);
+      Serial.print("📶 Server response: ");
+      Serial.println(responseCode);
+      SerialBT.print("📶 Server response: ");
+      SerialBT.println(responseCode);
+
+      http.end();
+    } else {
+      Serial.println("⚠️ Wi-Fi not connected");
+      SerialBT.println("⚠️ Wi-Fi not connected");
+    }
+  }
+
+  // Small delay, then signal to the external timer that we are finished.
+  delay(1000);
+  digitalWrite(DONE_PIN, HIGH);
+  delay(100);
+}

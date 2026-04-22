@@ -1,0 +1,86 @@
+-- Disclaimer: Example SQL schema for a research supplement.
+-- Review and adapt (database name, sizes, indexes) before production use.
+
+-- 1) Create database (optional)
+-- TODO: Replace YOUR_DATABASE_NAME_HERE with your actual DB name.
+CREATE DATABASE IF NOT EXISTS YOUR_DATABASE_NAME_HERE
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE YOUR_DATABASE_NAME_HERE;
+
+-- 2) Users table --------------------------------------------------------
+-- Used for authentication (login.php, auth.php, create_admin.php, create_team_user.php)
+
+CREATE TABLE users (
+  id            INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  email         VARCHAR(190) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  role          ENUM('user','admin') NOT NULL DEFAULT 'user',
+  created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uniq_email (email)
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+-- 3) Sites table --------------------------------------------------------
+-- Logical sites/locations for dashboards (index.php, site.php, admin/site_edit.php)
+
+CREATE TABLE sites (
+  id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name            VARCHAR(190) NOT NULL,
+  slug            VARCHAR(190) NOT NULL,
+  background_path VARCHAR(255) DEFAULT NULL,
+  created_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uniq_slug (slug)
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+-- 4) Nodes table --------------------------------------------------------
+-- Individual devices (EVE-NODE) belonging to a site (site.php, api/data.php, download.php, admin/site_edit.php)
+
+CREATE TABLE nodes (
+  id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  site_id     INT UNSIGNED NOT NULL,
+  name        VARCHAR(190) NOT NULL,
+  device_id   VARCHAR(64) NOT NULL,
+  device_type VARCHAR(64) DEFAULT NULL,
+  created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_site_id (site_id),
+  UNIQUE KEY uniq_device_id (device_id),
+  CONSTRAINT fk_nodes_site
+    FOREIGN KEY (site_id) REFERENCES sites(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+-- 5) Sensor data table --------------------------------------------------
+-- Time series from EVE-NODE (esp32_data.php, api/data.php, download.php, dashboard.php)
+
+CREATE TABLE sensor_data (
+  id         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  timestamp  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  device_id  VARCHAR(64) NOT NULL,
+  sht_temp   DOUBLE DEFAULT NULL,
+  humidity   DOUBLE DEFAULT NULL,
+  bmp_temp   DOUBLE DEFAULT NULL,
+  pressure   DOUBLE DEFAULT NULL,
+  par        DOUBLE DEFAULT NULL,
+  battery    DOUBLE DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY idx_device_time (device_id, timestamp),
+  KEY idx_time (timestamp)
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+-- Notes:
+-- - CO2 and methane columns are intentionally omitted to match the cleaned PHP code.
+-- - Only EVE-NODE devices are assumed; device_type is kept generic for future extensions.
+-- - The esp32_data.php ingestion script relies on timestamp having a DEFAULT CURRENT_TIMESTAMP.
