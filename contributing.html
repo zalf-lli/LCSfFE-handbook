@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Abbreviations – Build-It-Yourself: Low-Cost Systems for Field Ecophysiology</title>
+<title>Contributing – Build-It-Yourself: Low-Cost Systems for Field Ecophysiology</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,8 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./contributing.html" rel="next">
-<link href="./references.html" rel="prev">
+<link href="./abbreviations.html" rel="prev">
 <link href="./assets/mhl-logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -257,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./abbreviations.html">Abbreviations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contributing.html">Contributing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -330,13 +364,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./abbreviations.html" class="sidebar-item-text sidebar-link active">
+  <a href="./abbreviations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abbreviations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contributing.html" class="sidebar-item-text sidebar-link">
+  <a href="./contributing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Contributing</span></a>
   </div>
 </li>
@@ -345,8 +379,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-handbook-structure" id="toc-sec-handbook-structure" class="nav-link active" data-scroll-target="#sec-handbook-structure">Structure of the Handbook</a></li>
+  <li><a href="#sec-guide-structure" id="toc-sec-guide-structure" class="nav-link" data-scroll-target="#sec-guide-structure">How This Guide Is Organized</a></li>
+  <li><a href="#sec-quarto-basics" id="toc-sec-quarto-basics" class="nav-link" data-scroll-target="#sec-quarto-basics">Quarto Basics for Contributors</a>
+  <ul class="collapse">
+  <li><a href="#sec-section-crossrefs" id="toc-sec-section-crossrefs" class="nav-link" data-scroll-target="#sec-section-crossrefs">Headings and Section Cross-References</a></li>
+  <li><a href="#sec-figures" id="toc-sec-figures" class="nav-link" data-scroll-target="#sec-figures">Images, Captions, and Figure Cross-References</a></li>
+  <li><a href="#sec-tables" id="toc-sec-tables" class="nav-link" data-scroll-target="#sec-tables">Tables and Table Cross-References</a></li>
+  <li><a href="#sec-links-citations" id="toc-sec-links-citations" class="nav-link" data-scroll-target="#sec-links-citations">Links, Citations, and File Placement</a></li>
+  </ul></li>
+  <li><a href="#sec-pr-workflow" id="toc-sec-pr-workflow" class="nav-link" data-scroll-target="#sec-pr-workflow">Contributing Through Pull Requests</a></li>
+  <li><a href="#sec-without-git" id="toc-sec-without-git" class="nav-link" data-scroll-target="#sec-without-git">Contributing Without Git</a></li>
+  <li><a href="#sec-publishing-action" id="toc-sec-publishing-action" class="nav-link" data-scroll-target="#sec-publishing-action">How the Handbook is Published</a></li>
+  <li><a href="#sec-zenodo-releases" id="toc-sec-zenodo-releases" class="nav-link" data-scroll-target="#sec-zenodo-releases">Making Zenodo-Backed Releases</a></li>
+  <li><a href="#sec-before-pr" id="toc-sec-before-pr" class="nav-link" data-scroll-target="#sec-before-pr">Before You Open a Pull Request</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/zalf-lli/LCSfFE-handbook/edit/main/contributing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -354,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Abbreviations</h1>
+<h1 class="title"><span id="sec-contributing-guide" class="quarto-section-identifier">Contributing</span></h1>
 </div>
 
 
@@ -371,21 +424,202 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PTFE</strong>: Polytetrafluoroethylene</p>
-<p><strong>PAR</strong>: Photosynthetic Active Radiation</p>
-<p><strong>BWP34</strong>: Photodiode</p>
-<p><strong>GND</strong>: Grounding line</p>
-<p><strong>5V</strong>: 5V power line</p>
-<p><strong>A2</strong>: Analog signal line</p>
-<p><strong>ET</strong>: Evapotranspiration</p>
-<p><strong>CO2</strong>: Carbon dioxide</p>
-<p><strong>CH4</strong>: Methane</p>
-<p><strong>NDVI:</strong> Normalized Difference Vegetation index</p>
-<p><strong>PRI:</strong> Photochemical Reflectance Index</p>
-<p><strong>NiMH:</strong> Nickel-Metal Hydride</p>
-<p><strong>mAh:</strong> Milliampere hour</p>
+<p>This page provides a detailed guide for contributors who want to add or revise content in the handbook. But first it is important to provide an overview of how the handbook is structured and how the publishing workflow works, so that contributors can understand the context for their contributions and how they will be published.</p>
+<section id="sec-handbook-structure" class="level2">
+<h2 class="anchored" data-anchor-id="sec-handbook-structure">Structure of the Handbook</h2>
+<p>The handbook is designed to be easier to read, share, and maintain because it is written with <a href="https://quarto.org/">Quarto</a> and stored in a repository on <a href="https://github.com/zalf-lli/LCSfFE-handbook">GitHub</a><!-- todo update repo link upon transfer-->. That means one source can be rendered as both a website and a PDF simultaneously, contributors can collaborate through pull requests, and each formal release can be archived through <a href="https://zenodo.org/">Zenodo</a> for long-term citation and preservation.</p>
+<p>This combination of both a website and PDF is intended to maximize accessibility and usability for users of the guide. The HTML version works well on phones and laptops, figures can be magnified upon clicking for closer inspection, and there is the potential to also include richer media such as embedded video.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why This Workflow Helps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The handbook is rendered to both HTML and PDF from the same source files.</li>
+<li>The website is easier to browse on mobile devices than a PDF alone.</li>
+<li>Contributors can propose changes without editing the published files directly.</li>
+<li>Releases can be versioned, cited, and preserved through GitHub and Zenodo.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sec-guide-structure" class="level2">
+<h2 class="anchored" data-anchor-id="sec-guide-structure">How This Guide Is Organized</h2>
+<p>If you want to add or revise content, the most important sections are:</p>
+<ul>
+<li><a href="#sec-quarto-basics" class="quarto-xref"><span>Quarto Basics for Contributors</span></a> for everyday Quarto writing patterns</li>
+<li><a href="#sec-pr-workflow" class="quarto-xref"><span>Contributing Through Pull Requests</span></a> for contributing through pull requests</li>
+<li><a href="#sec-publishing-action" class="quarto-xref"><span>How the Handbook is Published</span></a> for understanding how publication works after changes are merged</li>
+<li><a href="#sec-zenodo-releases" class="quarto-xref"><span>Making Zenodo-Backed Releases</span></a> for the current release and archival workflow</li>
+</ul>
+</section>
+<section id="sec-quarto-basics" class="level2">
+<h2 class="anchored" data-anchor-id="sec-quarto-basics">Quarto Basics for Contributors</h2>
+<p>You do not need to know every Quarto feature to contribute successfully. Most edits will involve plain text, headings, images, tables, links, and occasional citations. For more advanced formatting, you can refer to the <a href="https://quarto.org/docs/guide/">Quarto documentation</a> as needed.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Markdown visual editors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most Integrated Development Environments (IDEs) and code editors such as VScode, Positron and Rstudio that support Markdown will work well for editing <code>.qmd</code> files, since Quarto is built on top of Markdown. These editors also have <a href="https://rstudio.github.io/visual-markdown-editing/">in-built visual editing mode for Markdown</a>, which makes writing and formatting easier for users who are used to traditional editing interfaces like Microsoft Word. You can toggle between the raw Markdown code and the visual editor as needed, which can be especially helpful for formatting complex elements like tables or lists.</p>
+</div>
+</div>
+<section id="sec-section-crossrefs" class="level3">
+<h3 class="anchored" data-anchor-id="sec-section-crossrefs">Headings and Section Cross-References</h3>
+<p>Use Markdown headings to structure your content. When a section may need to be referenced later, include a tag after the heading in this format <code>{#sec-}</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Calibration Procedure {#sec-calibration}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>The full workflow is described in @sec-calibration.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use short, descriptive labels and avoid renaming labels that are already referenced elsewhere unless you also update those references.</p>
+</section>
+<section id="sec-figures" class="level3">
+<h3 class="anchored" data-anchor-id="sec-figures">Images, Captions, and Figure Cross-References</h3>
+<p>Store new image files in the directory <code>assets/</code>, then insert them with a caption and alt text. For cross-referenceable figures, use a label starting with <code>fig-</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Wiring layout for the weather station](assets/weather-station.png)</span>{#fig-weather-station fig-alt="Diagram showing the weather station wiring layout"}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>See @fig-weather-station for the complete wiring layout.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The caption is what readers see in the document. The <code>fig-alt</code> text is for accessibility and should briefly describe what the image shows.</p>
+<p>Because the book already enables HTML lightbox figures, readers can click figures on the website to inspect them more closely.</p>
+</section>
+<section id="sec-tables" class="level3">
+<h3 class="anchored" data-anchor-id="sec-tables">Tables and Table Cross-References</h3>
+<p>For simple tables, use standard Markdown tables inside a labeled div. Table labels should start with <code>tbl-</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>::: {#tbl-parts-list}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Quantity <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---------</span> <span class="pp">| --------</span> <span class="pp">| -----</span> <span class="pp">|</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Sensor    <span class="pp">|</span> 1        <span class="pp">|</span> Main measurement unit <span class="pp">|</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cable     <span class="pp">|</span> 2        <span class="pp">|</span> Shielded if possible <span class="pp">|</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>Essential parts for the assembly.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>See @tbl-parts-list for the required components.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Keep tables focused and readable. If a table becomes wide or complex, consider whether it would work better as a figure, appendix item, or downloadable file.</p>
+</section>
+<section id="sec-links-citations" class="level3">
+<h3 class="anchored" data-anchor-id="sec-links-citations">Links, Citations, and File Placement</h3>
+<p>Use normal Markdown links for web pages:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Project repository</span><span class="co">](https://github.com/zalf-lli/LCSfFE-handbook)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use citation keys from <code>references.bib</code> when citing literature:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Low-cost sensing approaches are becoming increasingly important in field research <span class="co">[</span><span class="ot">@smith2024</span><span class="co">]</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Place new images in <code>assets/</code> unless there is a strong reason to keep them next to a chapter. If you add a large supporting dataset or supplementary file, follow the project’s existing appendix and supporting-data structure instead of inventing a new folder layout.</p>
+</section>
+</section>
+<section id="sec-pr-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="sec-pr-workflow">Contributing Through Pull Requests</h2>
+<p>The preferred way to contribute substantial changes is through a pull request.</p>
+<ol type="1">
+<li>Fork the repository to your own GitHub account.</li>
+<li>Create a new branch for your change.</li>
+<li>Edit or add the relevant <code>.qmd</code>, image, or supporting files.</li>
+<li>Commit your changes with a short, descriptive message.</li>
+<li>Open a pull request against the <code>main</code> branch of this repository.</li>
+</ol>
+<p>Maintainers can then review the proposed changes, suggest revisions if needed, and merge the contribution once it is ready.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>About the Edit Buttons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This handbook enables GitHub edit links in the published book, so you may see a direct edit option on pages. That can be useful for small fixes, but larger additions or structural changes should still be submitted as a pull request so they can be reviewed properly.</p>
+</div>
+</div>
+<p>If you are new to GitHub, focus on making one clear change at a time. Small pull requests are easier to review and easier to merge safely.</p>
+</section>
+<section id="sec-without-git" class="level2">
+<h2 class="anchored" data-anchor-id="sec-without-git">Contributing Without Git</h2>
+<p>If you do not use Git, you can still contribute by downloading the repository to your computer, editing the relevant files locally, and then sending the changed files to one of the handbook authors so they can incorporate your revisions.</p>
+<p>A practical workflow is:</p>
+<ol type="1">
+<li>Download the repository from GitHub as a ZIP file and extract it locally.</li>
+<li>Edit the relevant <code>.qmd</code>, image, or supporting files on your computer.</li>
+<li>Keep a short note describing what you changed and which files you edited.</li>
+<li>Send the edited files and your note to one of the authors for review and incorporation.</li>
+</ol>
+<p>This approach works best for small to moderate changes. If you expect to make repeated contributions, learning the pull request workflow above will usually make collaboration easier over time.</p>
+</section>
+<section id="sec-publishing-action" class="level2">
+<h2 class="anchored" data-anchor-id="sec-publishing-action">How the Handbook is Published</h2>
+<p>Updates to the handbook are ‘published’ automatically using a GitHub Actions workflow (<code>.github/workflows/_publish.yml</code>). This is a continuous deployment setup (a series of automated programmatic steps happening in the cloud on GitHub) that renders the book and updates the published website whenever changes are merged into the <code>main</code> branch.</p>
+<p>In the current setup:</p>
+<ul>
+<li>a push to the <code>main</code> branch starts the workflow</li>
+<li>the workflow checks out the repository</li>
+<li>Quarto is installed, including TinyTeX for PDF rendering</li>
+<li>R is set up and project packages are restored with <code>renv</code></li>
+<li>Quarto renders the book and publishes the result to the <code>gh-pages</code> branch</li>
+</ul>
+<p>For most contributors, this means you do not need to publish the site yourself. Once a pull request is merged into <code>main</code>, the publishing workflow handles rendering and deployment automatically.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>In Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your change is merged successfully, the website and PDF should be refreshed by the automated workflow. Contributors usually work through branches and pull requests, while maintainers oversee merges and releases.</p>
+</div>
+</div>
+</section>
+<section id="sec-zenodo-releases" class="level2">
+<h2 class="anchored" data-anchor-id="sec-zenodo-releases">Making Zenodo-Backed Releases</h2>
+<p>This handbook is also archived through Zenodo so that released versions can be cited reliably.</p>
+<p>The current release process is a maintainer workflow:</p>
+<ol type="1">
+<li>Finalize the content for the release.</li>
+<li>Update version references and <code>CHANGELOG.md</code> as needed.</li>
+<li>Create a Git tag and GitHub release for that version.</li>
+<li>Let the existing GitHub-Zenodo integration archive the release and mint the versioned Zenodo record.</li>
+</ol>
+<p>The project DOI in the repository points to the Zenodo archive for all versions, while Zenodo also provides version-specific records for individual releases.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Current Scope of This Guide
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This guide documents the repository workflow as it exists now. It does not assume additional release metadata files such as <code>.zenodo.json</code> or <code>CITATION.cff</code>, because those files are not currently part of this repository.</p>
+</div>
+</div>
+<p>When citing the handbook, use the citation provided by Zenodo for the latest release instead of copying an older citation string from a previous version.</p>
+</section>
+<section id="sec-before-pr" class="level2">
+<h2 class="anchored" data-anchor-id="sec-before-pr">Before You Open a Pull Request</h2>
+<p>Before submitting, quickly check the following:</p>
+<ul>
+<li>your headings and labels are clear</li>
+<li>any new figures include captions and alt text</li>
+<li>any new tables have readable captions</li>
+<li>internal references still resolve correctly</li>
+<li>filenames and folder placement match the existing project structure</li>
+</ul>
+<p>Thank you for helping this handbook stay useful, collaborative, and sustainable over time.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -803,14 +1037,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./abbreviations.html" class="pagination-link" aria-label="Abbreviations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Abbreviations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./contributing.html" class="pagination-link" aria-label="Contributing">
-        <span class="nav-page-text">Contributing</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -821,7 +1052,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>License: Creative Commons Attribution 4.0 (CC-BY 4.0)</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/zalf-lli/LCSfFE-handbook/edit/main/abbreviations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/zalf-lli/LCSfFE-handbook/edit/main/contributing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

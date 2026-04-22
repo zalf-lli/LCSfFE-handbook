@@ -328,6 +328,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -340,8 +346,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendices</span></span></a>
+  <a href="./contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
   </div>
 </li>
     </ul>
@@ -457,19 +463,19 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
 <p>This handbook is part of the MonksHillLab initiative (integral part of the <a href="https://www.zalf.de/en/struktur/pb1/ibg/Pages/default.aspx">Working Group Ecophysiology of Water and Matter Cycling</a> of the <a href="https://www.zalf.de/en/Pages/ZALF.aspx">Leibniz Centre for Agricultural Landscape Research</a>) which aims to democratize science by enabling low-cost, DIY sensor development for environmental monitoring. It provides step-by-step guidance on building and calibrating sensor systems using open hardware and widely available components.</p>
 <p>The project supports ecophysiological research and the discovery of sustainable agricultural management practices, particularly in under-resourced regions and the Global South. By focusing on reproducibility, accessibility, and practical application, it seeks to close the gap between research/development and field implementation/adoption.</p>
-<p>This is a living document: users are encouraged to build upon the existing designs, share adaptations, and contribute new chapters, see the <a href="#sec-contributing" class="quarto-xref"><span>Section 1.2</span></a> section for more details. Future versions will include additional low-cost DIY systems and their integration with the MonksHillLab Logger App. Thus, together, we aim to grow with that handbook a practical, evolving resource for scientists, students, and practitioners.</p>
+<p>This is a living document: users are encouraged to build upon the existing designs, share adaptations, and contribute new chapters. See the dedicated <a href="./contributing.html">Contributing chapter</a> and <a href="#sec-contributing" class="quarto-xref"><span>Section 1.2</span></a> section for practical guidance on writing in Quarto, using pull requests, and understanding publication and release workflows. Future versions will include additional low-cost DIY systems and their integration with the MonksHillLab Logger App. Thus, together, we aim to grow with that handbook a practical, evolving resource for scientists, students, and practitioners.</p>
 <p>We are currently exploring the idea of organizing a low-cost sensor summer school and/or online workshop to provide hands-on training, exchange ideas, and build a global community around DIY environmental monitoring. If you are interested in participating or helping shape the format, feel free to get in touch or respond to the <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-lZMnjAK-ll1-eMoKwWdKpjrdHeFioPDRd5Fp-lMQW38EWg/viewform?usp=header">feedback link</a></p>
 <section id="sec-structure" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-structure"><span class="header-section-number">1.1</span> Structure of the handbook</h2>
-<p>This handbook provides open-source, low-cost designs for field-based ecophysiological measurement systems in agricultural research. It is intended to support researchers, practitioners, and students in building and deploying affordable monitoring tools that can be adapted to a wide range of field conditions. To provide structure and clarity, the handbook is organized around three key domains of ecophysiological monitoring: (1) environmental variables (e.g., air temperature, humidity, radiation, soil moisture), (2) plant health and development (e.g., leaf temperature, chlorophyll status, canopy reflectance), and (3) biogeochemical cycles (e.g., evapotranspiration (ET), CO₂ and CH₄ fluxes, nutrient dynamics). These categories reflect increasing system complexity—from relatively simple measurements of ambient conditions to more integrated assessments of ecosystem processes. Each chapter follows the same practical structure—covering use cases, required materials, wiring diagrams, step-by-step assembly, calibration, and code—making it easy to adapt and implement these systems regardless of technical background.</p>
+<p>This handbook provides open-source, low-cost designs for field-based ecophysiological measurement systems in agricultural research. It is intended to support researchers, practitioners, and students in building and deploying affordable monitoring tools that can be adapted to a wide range of field conditions. To provide structure and clarity, the handbook is organized around three key domains of ecophysiological monitoring: (1) environmental variables (e.g., air temperature, humidity, radiation, soil moisture), (2) plant health and development (e.g., leaf temperature, chlorophyll status, canopy reflectance), and (3) biogeochemical cycles (e.g., evapotranspiration (ET), CO2 and CH4 fluxes, nutrient dynamics). These categories reflect increasing system complexity, from relatively simple measurements of ambient conditions to more integrated assessments of ecosystem processes. Each chapter follows the same practical structure, covering use cases, required materials, wiring diagrams, step-by-step assembly, calibration, and code, making it easy to adapt and implement these systems regardless of technical background.</p>
 </section>
 <section id="sec-contributing" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-contributing"><span class="header-section-number">1.2</span> Contributing</h2>
-<p>You’re very welcome to share your improvements/chapters. Just email the author (mathias.hoffmann@zalf.de) and submit an update.</p>
+<p>Contributions are very welcome. Please use the dedicated <a href="./contributing.html">Contributing chapter</a> for a beginner-friendly guide to Quarto authoring, pull requests, GitHub Pages publishing, and Zenodo-backed releases. If you need help deciding whether a contribution is a good fit, you can still contact the author at mathias.hoffmann@zalf.de.</p>
 </section>
 <section id="sec-whats-new" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-whats-new"><span class="header-section-number">1.3</span> Whats New?</h2>
-<p><strong>Version 2.1</strong> introduces the EVE-Offline and EVE-Online worklfows including a backend infrastructure and dashboard setup for real-time data transfer and visualization (EVE-Online). In addtion <a href="appendices.html#sec-appendix_D" class="quarto-xref"><span>Section 5.4</span></a> was added, now contiang supporting data (starting with data for the PAR sensor validation as well as the proof of concept of EVE-Offline and EVE-Online.</p>
+<p><strong>Version 2.1</strong> introduces the EVE-Offline and EVE-Online worklfows including a backend infrastructure and dashboard setup for real-time data transfer and visualization (EVE-Online). In addtion <a href="appendices.html#sec-appendix_D" class="quarto-xref"><span>Section 5.4</span></a> was added, now contiang supporting data (starting with data for the PAR sensor validation as well as the proof of concept of EVE-Offline and EVE-Online).</p>
 </section>
 <section id="sec-whats-next" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-whats-next"><span class="header-section-number">1.4</span> Whats Next?</h2>
