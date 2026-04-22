@@ -573,7 +573,9 @@ Figure&nbsp;2.1: wiring scheme for the PAR sensor, illustrating the electrical c
 <section id="sec-par-sensor-purpose" class="level4" data-number="2.1.2.1">
 <h4 data-number="2.1.2.1" class="anchored" data-anchor-id="sec-par-sensor-purpose"><span class="header-section-number">2.1.2.1</span> Purpose &amp; Use Case:</h4>
 <p>The PAR sensor module presented here can be used to determine photosynthetically active radiation (PAR), the range of solar radiation between 400 and 700 nm that is relevant for plant photosynthesis. While this chapter focuses on the construction and calibration of the sensor itself, it is designed to be integrated into larger monitoring setups that include power supply and data logging via a microcontroller. The sensor module thus serves as a <strong>Component</strong> in more comprehensive systems—such as automatic climate stations or gas flux chambers described in later chapters—where continuous PAR measurements are essential for understanding environmental conditions and light-driven plant processes.</p>
-<p><strong>Bill of Materials:</strong> {#sec-par-sensor-bom}</p>
+</section>
+<section id="sec-par-sensor-bom" class="level4" data-number="2.1.2.2">
+<h4 data-number="2.1.2.2" class="anchored" data-anchor-id="sec-par-sensor-bom"><span class="header-section-number">2.1.2.2</span> Bill of Materials:</h4>
 <p>A comprehensive overview of all components required to build the sensor, needed quantities, recommended suppliers and approximate prices (in €) is provided in <a href="#tbl-PAR_sensor_bom" class="quarto-xref">Table&nbsp;<span>2.2</span></a>.</p>
 <div id="tbl-PAR_sensor_bom" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -645,8 +647,8 @@ Table&nbsp;2.2: Components required for PAR sensor assembly; includes quantity, 
 </figure>
 </div>
 </section>
-<section id="sec-par-sensor-wiring" class="level4" data-number="2.1.2.2">
-<h4 data-number="2.1.2.2" class="anchored" data-anchor-id="sec-par-sensor-wiring"><span class="header-section-number">2.1.2.2</span> Wiring Diagram:</h4>
+<section id="sec-par-sensor-wiring" class="level4" data-number="2.1.2.3">
+<h4 data-number="2.1.2.3" class="anchored" data-anchor-id="sec-par-sensor-wiring"><span class="header-section-number">2.1.2.3</span> Wiring Diagram:</h4>
 <p>A schematic overview of the wiring layout, showing all necessary connections between electrical components, is provided in Figure 2.1.2.3.</p>
 <div id="fig-PAR_sensor_wiring" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -659,8 +661,8 @@ Figure&nbsp;2.2: Wiring scheme for the PAR sensor, illustrating the electrical c
 </figure>
 </div>
 </section>
-<section id="sec-par-sensor-assembly" class="level4" data-number="2.1.2.3">
-<h4 data-number="2.1.2.3" class="anchored" data-anchor-id="sec-par-sensor-assembly"><span class="header-section-number">2.1.2.3</span> Assembly Instructions:</h4>
+<section id="sec-par-sensor-assembly" class="level4" data-number="2.1.2.4">
+<h4 data-number="2.1.2.4" class="anchored" data-anchor-id="sec-par-sensor-assembly"><span class="header-section-number">2.1.2.4</span> Assembly Instructions:</h4>
 <ol type="1">
 <li><p>3D-print case (black) using UV-resistant material</p></li>
 <li><p>Place the BPW34 photodiode into the designated slot in the 3D-printed case, ensuring correct orientation (cathode/anode);</p></li>
@@ -674,12 +676,12 @@ Figure&nbsp;2.2: Wiring scheme for the PAR sensor, illustrating the electrical c
 <li><p>Upload program code to microcontroller and check if the sensor is delivering values in expected range under different light conditions;</p></li>
 </ol>
 </section>
-<section id="sec-par-sensor-calibration" class="level4" data-number="2.1.2.4">
-<h4 data-number="2.1.2.4" class="anchored" data-anchor-id="sec-par-sensor-calibration"><span class="header-section-number">2.1.2.4</span> Calibration:</h4>
+<section id="sec-par-sensor-calibration" class="level4" data-number="2.1.2.5">
+<h4 data-number="2.1.2.5" class="anchored" data-anchor-id="sec-par-sensor-calibration"><span class="header-section-number">2.1.2.5</span> Calibration:</h4>
 <p>Since the sensor provides only an analog voltage output, it must be calibrated to convert readings into meaningful units of photosynthetically active radiation (PAR; μmol m⁻² s⁻¹). This requires deriving a calibration function by operating the low-cost sensor alongside a high-accuracy PAR sensor under natural sunlight over the course of a clear day. Calibration is particularly important because different resistor values can be used to adjust the sensor’s sensitivity to local light conditions. Lower resistor values reduce sensitivity, making them suitable for high-light environments (e.g., inner latitudes), while higher resistor values increase sensitivity but may lead to signal saturation under intense light. <a href="appendices.html#sec-appendix_D" class="quarto-xref"><span>Section 5.4</span></a> (Supporting Data) contains a 48h data set of a low-cost PAR sensor directly compared with a high-cost SKP215 PAR sensor (trueness; Campbell Scientific, UK) as well as a 36h test of 10 low-cost PAR sensors directly compared with a high-cost SKP215 PAR sensor (accuracy; <strong>Campbell Scientific, UK</strong>).</p>
 </section>
-<section id="sec-par-sensor-code" class="level4" data-number="2.1.2.5">
-<h4 data-number="2.1.2.5" class="anchored" data-anchor-id="sec-par-sensor-code"><span class="header-section-number">2.1.2.5</span> Code:</h4>
+<section id="sec-par-sensor-code" class="level4" data-number="2.1.2.6">
+<h4 data-number="2.1.2.6" class="anchored" data-anchor-id="sec-par-sensor-code"><span class="header-section-number">2.1.2.6</span> Code:</h4>
 <p>Below, a basic Arduino IDE code example is given to implement the low-cost DIY PAR sensor with a microcontroller (e.g., UNO, ProMini, etc.).</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// PAR sensor code</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> sensorPin <span class="op">=</span> A0<span class="op">;</span> <span class="co">// Analog pin connected to photodiode anode</span></span>
