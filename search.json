@@ -240,8 +240,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-handbook-structure",
-    "href": "contributing.html#sec-handbook-structure",
+    "objectID": "contributing.html#sec-handbook_structure",
+    "href": "contributing.html#sec-handbook_structure",
     "title": "Contributing",
     "section": "",
     "text": "TipWhy This Workflow Helps\n\n\n\n\nThe handbook is rendered to both HTML and PDF from the same source files.\nThe website is easier to browse on mobile devices than a PDF alone.\nContributors can propose changes without editing the published files directly.\nReleases can be versioned, cited, and preserved through GitHub and Zenodo.",
@@ -250,8 +250,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-guide-structure",
-    "href": "contributing.html#sec-guide-structure",
+    "objectID": "contributing.html#sec-guide_structure",
+    "href": "contributing.html#sec-guide_structure",
     "title": "Contributing",
     "section": "How This Guide Is Organized",
     "text": "How This Guide Is Organized\nIf you want to add or revise content, the most important sections are:\n\nQuarto Basics for Contributors for everyday Quarto writing patterns\nContributing Through Pull Requests for contributing through pull requests\nHow the Handbook is Published for understanding how publication works after changes are merged\nMaking Zenodo-Backed Releases for the current release and archival workflow",
@@ -260,8 +260,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-quarto-basics",
-    "href": "contributing.html#sec-quarto-basics",
+    "objectID": "contributing.html#sec-quarto_basics",
+    "href": "contributing.html#sec-quarto_basics",
     "title": "Contributing",
     "section": "Quarto Basics for Contributors",
     "text": "Quarto Basics for Contributors\nYou do not need to know every Quarto feature to contribute successfully. Most edits will involve plain text, headings, images, tables, links, and occasional citations. For more advanced formatting, you can refer to the Quarto documentation as needed.\n\n\n\n\n\n\nTipMarkdown visual editors\n\n\n\nMost Integrated Development Environments (IDEs) and code editors such as VScode, Positron and Rstudio that support Markdown will work well for editing .qmd files, since Quarto is built on top of Markdown. These editors also have in-built visual editing mode for Markdown, which makes writing and formatting easier for users who are used to traditional editing interfaces like Microsoft Word. You can toggle between the raw Markdown code and the visual editor as needed, which can be especially helpful for formatting complex elements like tables or lists.\n\n\n\nHeadings and Section Cross-References\nUse Markdown headings to structure your content. When a section may need to be referenced later, include a tag after the heading in this format {#sec-}.\n## Calibration Procedure {#sec-calibration}\n\nThe full workflow is described in @sec-calibration.\nUse short, descriptive labels and avoid renaming labels that are already referenced elsewhere unless you also update those references.\n\n\nImages, Captions, and Figure Cross-References\nStore new image files in the directory assets/, then insert them with a caption and alt text. For cross-referenceable figures, use a label starting with fig-.\n![Wiring layout for the weather station](assets/weather-station.png){#fig-weather-station fig-alt=\"Diagram showing the weather station wiring layout\"}\n\nSee @fig-weather-station for the complete wiring layout.\nThe caption is what readers see in the document. The fig-alt text is for accessibility and should briefly describe what the image shows.\nBecause the book already enables HTML lightbox figures, readers can click figures on the website to inspect them more closely.\n\n\nTables and Table Cross-References\nFor simple tables, use standard Markdown tables inside a labeled div. Table labels should start with tbl-.\n::: {#tbl-parts-list}\n\n| Component | Quantity | Notes |\n| --------- | -------- | ----- |\n| Sensor    | 1        | Main measurement unit |\n| Cable     | 2        | Shielded if possible |\n\nEssential parts for the assembly.\n:::\n\nSee @tbl-parts-list for the required components.\nKeep tables focused and readable. If a table becomes wide or complex, consider whether it would work better as a figure, appendix item, or downloadable file.\n\n\nLinks, Citations, and File Placement\nUse normal Markdown links for web pages:\n[Project repository](https://github.com/zalf-lli/LCSfFE-handbook)\nUse citation keys from references.bib when citing literature:\nLow-cost sensing approaches are becoming increasingly important in field research [@smith2024].\nPlace new images in assets/ unless there is a strong reason to keep them next to a chapter. If you add a large supporting dataset or supplementary file, follow the project’s existing appendix and supporting-data structure instead of inventing a new folder layout.",
@@ -270,8 +270,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-pr-workflow",
-    "href": "contributing.html#sec-pr-workflow",
+    "objectID": "contributing.html#sec-pr_workflow",
+    "href": "contributing.html#sec-pr_workflow",
     "title": "Contributing",
     "section": "Contributing Through Pull Requests",
     "text": "Contributing Through Pull Requests\nThe preferred way to contribute substantial changes is through a pull request.\n\nFork the repository to your own GitHub account.\nCreate a new branch for your change.\nEdit or add the relevant .qmd, image, or supporting files.\nCommit your changes with a short, descriptive message.\nOpen a pull request against the main branch of this repository.\n\nMaintainers can then review the proposed changes, suggest revisions if needed, and merge the contribution once it is ready.\n\n\n\n\n\n\nImportantAbout the Edit Buttons\n\n\n\nThis handbook enables GitHub edit links in the published book, so you may see a direct edit option on pages. That can be useful for small fixes, but larger additions or structural changes should still be submitted as a pull request so they can be reviewed properly.\n\n\nIf you are new to GitHub, focus on making one clear change at a time. Small pull requests are easier to review and easier to merge safely.",
@@ -280,8 +280,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-without-git",
-    "href": "contributing.html#sec-without-git",
+    "objectID": "contributing.html#sec-without_git",
+    "href": "contributing.html#sec-without_git",
     "title": "Contributing",
     "section": "Contributing Without Git",
     "text": "Contributing Without Git\nIf you do not use Git, you can still contribute by downloading the repository to your computer, editing the relevant files locally, and then sending the changed files to one of the handbook authors so they can incorporate your revisions.\nA practical workflow is:\n\nDownload the repository from GitHub as a ZIP file and extract it locally.\nEdit the relevant .qmd, image, or supporting files on your computer.\nKeep a short note describing what you changed and which files you edited.\nSend the edited files and your note to one of the authors for review and incorporation.\n\nThis approach works best for small to moderate changes. If you expect to make repeated contributions, learning the pull request workflow above will usually make collaboration easier over time.",
@@ -290,8 +290,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-publishing-action",
-    "href": "contributing.html#sec-publishing-action",
+    "objectID": "contributing.html#sec-publishing_action",
+    "href": "contributing.html#sec-publishing_action",
     "title": "Contributing",
     "section": "How the Handbook is Published",
     "text": "How the Handbook is Published\nUpdates to the handbook are ‘published’ automatically using a GitHub Actions workflow (.github/workflows/_publish.yml). This is a continuous deployment setup (a series of automated programmatic steps happening in the cloud on GitHub) that renders the book and updates the published website whenever changes are merged into the main branch.\nIn the current setup:\n\na push to the main branch starts the workflow\nthe workflow checks out the repository\nQuarto is installed, including TinyTeX for PDF rendering\nR is set up and project packages are restored with renv\nQuarto renders the book and publishes the result to the gh-pages branch\n\nFor most contributors, this means you do not need to publish the site yourself. Once a pull request is merged into main, the publishing workflow handles rendering and deployment automatically.\n\n\n\n\n\n\nTipIn Practice\n\n\n\nIf your change is merged successfully, the website and PDF should be refreshed by the automated workflow. Contributors usually work through branches and pull requests, while maintainers oversee merges and releases.",
@@ -300,8 +300,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-zenodo-releases",
-    "href": "contributing.html#sec-zenodo-releases",
+    "objectID": "contributing.html#sec-zenodo_releases",
+    "href": "contributing.html#sec-zenodo_releases",
     "title": "Contributing",
     "section": "Making Zenodo-Backed Releases",
     "text": "Making Zenodo-Backed Releases\nThis handbook is also archived through Zenodo so that released versions can be cited reliably.\nThe current release process is a maintainer workflow:\n\nFinalize the content for the release.\nUpdate version references and CHANGELOG.md as needed.\nCreate a Git tag and GitHub release for that version.\nLet the existing GitHub-Zenodo integration archive the release and mint the versioned Zenodo record.\n\nThe project DOI in the repository points to the Zenodo archive for all versions, while Zenodo also provides version-specific records for individual releases.\n\n\n\n\n\n\nWarningCurrent Scope of This Guide\n\n\n\nThis guide documents the repository workflow as it exists now. It does not assume additional release metadata files such as .zenodo.json or CITATION.cff, because those files are not currently part of this repository.\n\n\nWhen citing the handbook, use the citation provided by Zenodo for the latest release instead of copying an older citation string from a previous version.",
@@ -310,8 +310,8 @@
     ]
   },
   {
-    "objectID": "contributing.html#sec-before-pr",
-    "href": "contributing.html#sec-before-pr",
+    "objectID": "contributing.html#sec-before_pr",
+    "href": "contributing.html#sec-before_pr",
     "title": "Contributing",
     "section": "Before You Open a Pull Request",
     "text": "Before You Open a Pull Request\nBefore submitting, quickly check the following:\n\nyour headings and labels are clear\nany new figures include captions and alt text\nany new tables have readable captions\ninternal references still resolve correctly\nfilenames and folder placement match the existing project structure\n\nThank you for helping this handbook stay useful, collaborative, and sustainable over time.",
